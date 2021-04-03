@@ -55,7 +55,9 @@ namespace CensusAnalyserTest
             public void GivenIndianCensusDataFile_WhenReaded_ShouldReturnCensusDataCount()
             {
                 totalRecord = censusAnalyser.LoadCensusData(indianStateCensusFilePath, Country.INDIA, indianStateCensusHeaders);
+                stateRecord = censusAnalyser.LoadCensusData(indianStateCodeFilePath, Country.INDIA, indianStateCodeHeaders);
                 Assert.AreEqual(29, totalRecord.Count);
+                Assert.AreEqual(37, stateRecord.Count);
             }
 
             [Test]
