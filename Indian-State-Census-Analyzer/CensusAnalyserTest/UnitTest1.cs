@@ -71,6 +71,13 @@ namespace CensusAnalyserTest
                 var censusException = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(wrongIndianStateCensusFileType, Country.INDIA, indianStateCensusHeaders));
                 Assert.AreEqual(CensusAnalyserException.ExceptionType.INVALID_FILE_TYPE, censusException.eType);
             }
+
+            [Test]
+            public void GivenDelimeterIncorrectIndianCensusDataFile_WhenReaded_ShouldReturnCustomException()
+            {
+                var censusException = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(delimiterIndianCensusFilePath, Country.INDIA, indianStateCensusHeaders));
+                Assert.AreEqual(CensusAnalyserException.ExceptionType.INCORRECT_DELIMITER, censusException.eType);
+            }
         }
 
     }
